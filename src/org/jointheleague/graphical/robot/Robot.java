@@ -54,7 +54,7 @@ public class Robot implements RobotInterface {
     private int penWidth;
     private Color penColor;
     private Pos pos;
-    private double angle;
+    private double angle; // in degrees
     private boolean isVisible;
     private boolean isSparkling;
     private ArrayList<Drawable> drawables;
@@ -518,9 +518,9 @@ public class Robot implements RobotInterface {
     }
 
     private void segmentTo(Segment segment, boolean forwards) {
-        final double directionAdjustment = forwards ? 0.0 : Math.PI;
+        final double directionAdjustment = forwards ? 0.0 : 180.0;
         double startAngle = segment.getStartAngle();
-        if (!Double.isNaN(startAngle)) turnTo(startAngle + directionAdjustment);
+        if (!Double.isNaN(startAngle)) turnTo(Math.toDegrees(startAngle) + directionAdjustment);
 
         final float deltaT = speed / segment.getSize();
         float t = 0.0F;
@@ -571,8 +571,8 @@ public class Robot implements RobotInterface {
         followPath(pathIterator, false);
     }
 
-    private double getAngleToTurn(final double targetAngle) {
-        final double angle = Math.toDegrees(targetAngle - Math.toRadians(getAngle()));
+    private double getAngleToTurn(final double targetAngleInDegrees) {
+        final double angle = targetAngleInDegrees - getAngle();
         if (angle > 180.0) return (angle + 180.0) % 360.0 - 180.0;
         if (angle < -180.0) return (angle - 180.0) % 360.0 + 180.0;
         return angle;

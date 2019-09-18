@@ -19,8 +19,8 @@ public class RobotExample13 {
         }
         RobotWindow window = RobotWindow.getInstance();
         window.setWinColor(Color.WHITE);
-        final Font font = new Font("Times New Roman", Font.PLAIN, 96);
-//        final Font font = new Font("Helvetica", Font.PLAIN, 96);
+//        final Font font = new Font("Times New Roman", Font.PLAIN, 96);
+        final Font font = new Font("Helvetica", Font.PLAIN, 96);
         final Graphics2D g2 = (Graphics2D) window.getGraphics();
         final FontRenderContext frc = g2.getFontRenderContext();
         final GlyphVector glyphVector =
@@ -38,11 +38,11 @@ public class RobotExample13 {
             rob.setRandomPenColor();
             rob.penDown();
             new Thread(() -> {
-                rob.followPath(glyphShape.getPathIterator(null), true);
+                rob.followPath(glyphShape.getPathIterator(null), false);
                 Rectangle bounds = glyphShape.getBounds();
                 rob.penUp();
                 rob.moveTo(bounds.x + bounds.width / 2F, 400, false);
-                rob.moveTo(0, -1, true);
+                rob.turnTo(0);
             }).start();
         }
     }
