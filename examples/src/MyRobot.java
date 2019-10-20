@@ -14,7 +14,7 @@ public class MyRobot extends Robot {
 		int sideLen = (int) (2 * radius * Math.abs(sin));
 		penUp();
 		move(radius);
-		turn(90 + angle / 2);
+		turn(90 + angle / 2.0);
 		penDown();
 		move(sideLen);
 		for (int i = 1; i < numSides; i++) {
@@ -22,7 +22,7 @@ public class MyRobot extends Robot {
 			move(sideLen);
 		}
 		penUp();
-		turn(-90 + angle / 2);
+		turn(-90 + angle / 2.0);
 	}
 
 }

@@ -214,7 +214,7 @@ public class Driver implements RobotInterface {
         int sideLen = (int) (2 * radius * Math.abs(sin));
         penUp();
         move(radius);
-        turn(90 + angle / 2);
+        turn(90 + angle / 2.0);
         penDown();
         move(sideLen);
         for (int i = 1; i < numSides; i++) {
@@ -222,7 +222,7 @@ public class Driver implements RobotInterface {
             move(sideLen);
         }
         penUp();
-        turn(-90 + angle / 2);
+        turn(-90 + angle / 2.0);
     }
 
 }

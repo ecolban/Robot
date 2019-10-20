@@ -17,7 +17,7 @@ class RegularPolygon extends Robot implements Runnable {
     public void run() {
         System.out.println(Thread.currentThread().getName() + " running...");
         long start = System.currentTimeMillis();
-        setSpeed(6);
+        setSpeed(2);
         penDown();
         turn(-90);
         drawPolygon();

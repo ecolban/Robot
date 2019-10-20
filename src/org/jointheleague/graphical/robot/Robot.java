@@ -427,7 +427,7 @@ public class Robot implements RobotInterface {
         double angle0 = getAngle();
         try {
             while (sgn * (degreesTurned - degrees) < 0) {
-                leakyBucket.take(); // will block until a TimeQuatum.TICK becomes available
+                leakyBucket.take(); // will block until a TimeQuantum.TICK becomes available
                 degreesTurned += sgn * speed;
                 if (sgn * (degreesTurned - degrees) > 0) {
                     degreesTurned = degrees;
